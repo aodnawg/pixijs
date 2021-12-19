@@ -37,9 +37,11 @@ TilingSprite.prototype._renderCanvas = function _renderCanvas(renderer: CanvasRe
     {
         this._textureID = this._texture._updateID;
         // cut an object from a spritesheet..
-        const tempCanvas = new CanvasRenderTarget(texture._frame.width,
-            texture._frame.height,
-            baseTextureResolution);
+        const tempCanvas = new CanvasRenderTarget(
+            texture._frame.width / baseTextureResolution,
+            texture._frame.height / baseTextureResolution,
+            baseTextureResolution
+        );
 
         // Tint the tiling sprite
         if (this.tint !== 0xFFFFFF)
